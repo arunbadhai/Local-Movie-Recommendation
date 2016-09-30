@@ -31,13 +31,13 @@ def clean(raw_list):
 
 def main():
 	omdb.set_default('tomatoes', True)
-	dirname = raw_input("Enter directory")
+	dirname = input("Enter directory: ")
 	if(len(sys.argv) ==  2):
 		dirname = sys.argv[1]
 	raw_movies = os.listdir(dirname)
 	print('Cleaning.....')
 	l = clean(raw_movies)
-	print('Retreiving Info...')
+	print('Retrieving Info...')
 	info = search(l)
 	sorted_x = sorted(info.items(), key=operator.itemgetter(1))
 	sorted_x = sorted_x[::-1]
